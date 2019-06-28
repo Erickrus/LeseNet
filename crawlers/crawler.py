@@ -49,9 +49,9 @@ bing_ic.save_links(link_save_dir, bing_links_name)
 engine = 'google'
 google_links_name = 'google_links.csv'
 
-google_ic = ImageCrawler(engine)
-google_ic.run(keyword, n_scroll)
-google_ic.save_links(link_save_dir, google_links_name)
+# google_ic = ImageCrawler(engine)
+# google_ic.run(keyword, n_scroll)
+# google_ic.save_links(link_save_dir, google_links_name)
 
 
 print("Images' links are saved in: " + link_save_dir + '\n')

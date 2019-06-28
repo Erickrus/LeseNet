@@ -3,13 +3,14 @@ import ssl
 import json
 import time
 import pandas as pd
+from collections import OrderedDict
 
 from tqdm import *
 from selenium import webdriver
+from config import conf
 
 
 class ImageCrawler(object):
-
     SETTINGS = {
         'baidu': {'url': 'https://image.baidu.com/search/index?tn=baiduimage&word=${KEYWORD}',
                   'see_more': None,
@@ -37,8 +38,9 @@ class ImageCrawler(object):
         self.item = self.SETTINGS[engine]['item']
         self.item_attr = self.SETTINGS[engine]['item_attr']
 
-        self.image_links = set()
+        self.image_links = OrderedDict()
         self._init_ssl()
+        self._init_selenium_browser()
         return
 
     def run(self, keyword, n_scroll):
@@ -58,8 +60,8 @@ class ImageCrawler(object):
         self._create_dir(save_dir)
 
         links_file = os.path.join(save_dir, file_name)
-        links_df = pd.DataFrame(data=list(self.image_links),
-                                columns=['links'])
+        data = [[k, self.engine , self.keyword , time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()) ,x ] for k,x in enumerate(self.image_links.keys())]
+        links_df = pd.DataFrame(data=data, columns=['num', 'engine' , 'keyword' , 'time' , 'links'])
 
         links_df.to_csv(links_file, index=False)
         return
@@ -68,9 +70,26 @@ class ImageCrawler(object):
         ssl._create_default_https_context = \
             ssl._create_unverified_context()
 
+    def _init_selenium_browser(self):
+
+        _options = webdriver.ChromeOptions()
+        _user_dir = conf.selenium['chrome_use_dir_path']
+        if(_user_dir is None or _user_dir==''):
+            pass
+        else:
+            _options.add_argument('--user-data-dir=' + _user_dir)
+
+        _driver_path =conf.selenium['chrome_driver_path']
+        if ( _driver_path is None or _driver_path=='' ):
+            self._browser = webdriver.Chrome()
+        else:
+            self._browser = webdriver.Chrome(_driver_path, chrome_options=_options)
+
+        return self._browser
+
     def _generate_links(self):
 
-        browser_driver = webdriver.Chrome()
+        browser_driver = self._browser #webdriver.Chrome()
         browser_driver.get(self.url.replace('${KEYWORD}', self.keyword))
 
         for _ in tqdm(range(self.n_scroll), ncols=70):
@@ -93,7 +112,7 @@ class ImageCrawler(object):
                 except Exception as e:
                     print('Error:', str(e))
 
-            self.image_links.add(image_link)
+            self.image_links[image_link] = []
 
         browser_driver.quit()
         return

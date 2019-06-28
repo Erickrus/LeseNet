@@ -17,11 +17,15 @@ class ImageDownloader(object):
         self.unique_links = []
         for link_file in os.listdir(links_dir):
             link_file_path = os.path.join(links_dir, link_file)
-            link_df = pd.read_csv(link_file_path)
-            links = link_df['links'].values.tolist()
-            self.unique_links += links
+            link_df = pd.read_csv(link_file_path , header=0 , encoding='utf-8')
 
-        self.unique_links = list(set(self.unique_links))
+            if(  len(link_df.columns.tolist()) != 5 ):continue
+
+            infos = link_df.values.tolist()
+            if(len(infos)>0):
+                self.unique_links += infos
+
+        # self.unique_links = list(set(self.unique_links))
         return
 
     def run(self, save_dir):
@@ -41,21 +45,30 @@ class ImageDownloader(object):
 
         for link in tqdm(self.unique_links, ncols=70):
             try:
-                parse = urlparse(link)
+                num = link[0]
+                engine = link[1]
+                kw = link[2]
+                img_file_name = '%s_%s_%s' %(engine, kw , num)
+                url = link[4]
+                parse = urlparse(url)
                 ref = parse.scheme + '://' + parse.hostname
                 ua = generate_user_agent()
                 headers['User-Agent'] = ua
                 headers['referer'] = ref
 
-                req = urllib.request.Request(link.strip(), headers=headers)
+                req = urllib.request.Request(url.strip(), headers=headers)
                 response = urllib.request.urlopen(req, timeout=5)
 
                 data = response.read()
                 image = Image.open(BytesIO(data)).convert('RGB')
 
-                ext = link.split('.')[-1]
-                image_name = '{}.{}'.format(str(count), ext)
+                ext = url.split('.')[-1]
+                if('?' in ext):
+                    pos = ext.find('?')
+                    ext = ext[:pos]
+                image_name = '{}.{}'.format(img_file_name, ext)
                 image_path = os.path.join(self.save_dir, image_name)
+                # print(image_path)
                 image.save(image_path)
 
                 count += 1
