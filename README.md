@@ -1,5 +1,7 @@
 # LeseNet
 
+LeseNet是一个类似ImageNet的图像层次化分类数据集，项目通过收集和标注生活垃圾图像帮助实现垃圾自动分类和分拣，此项目仅出于公益目的，请勿用于商业
+
 ![](https://raw.githubusercontent.com/Erickrus/LeseNet/master/misc/img/trashbin.jpg )
 
 
