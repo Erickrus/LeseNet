@@ -1,3 +1,8 @@
+# LeseNet
+
+![](https://raw.githubusercontent.com/Erickrus/LeseNet/master/misc/img/trashbin.jpg )
+
+
 TODO:
 
 1. Search engine crawler
