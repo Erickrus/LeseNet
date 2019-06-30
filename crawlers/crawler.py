@@ -1,5 +1,6 @@
 import os
 import sys
+import hashlib
 
 from image_crawler import ImageCrawler
 from image_downloader import ImageDownloader
@@ -14,6 +15,10 @@ if len(sys.argv)<2:
 
 keyword = sys.argv[1]
 
+def get_md5(text):
+    m = hashlib.md5()
+    m.update(text.encode('utf-8'))
+    return  m.hexdigest()
 
 def crawl(keyword, n_scroll, engine='baidu'):
     # ---------------------------------------------------
@@ -21,8 +26,10 @@ def crawl(keyword, n_scroll, engine='baidu'):
     # ---------------------------------------------------
     print(SEP + 'Basic settings for ImageCrawler and ImageDownloader\n' + SEP)
 
-    link_save_dir = os.path.join('../data/links', keyword)
-    image_save_dir = os.path.join('../data/images', keyword)
+    keywordHash = get_md5(keyword)
+
+    link_save_dir = os.path.join('../data/links', keywordHash)
+    image_save_dir = os.path.join('../data/images', keywordHash)
 
     print('Keyword:', keyword)
     print('Number of scrolling:', n_scroll)

@@ -8,9 +8,9 @@ class Configuration:
         # 'temp_dir': '/opt/azkaban/scripts/python/tmp'
 
         # 环境二：windows开发环境
-        'chrome_driver_path':'E:\\Workspace\\Python\\Python库\\selenium\\chromedriver.exe', # chromedriver路径，若已经添加到系统path则可直接写‘chromedriver.exe’
-        'chrome_use_dir_path': 'E:\\Workspace\\Python\\Python库\\selenium\\chromeOptionsTest3',
-        'temp_dir': 'e:\\crawler_data\\tmp',
+        # 'chrome_driver_path':'E:\\Workspace\\Python\\Python库\\selenium\\chromedriver.exe', # chromedriver路径，若已经添加到系统path则可直接写‘chromedriver.exe’
+        # 'chrome_use_dir_path': 'E:\\Workspace\\Python\\Python库\\selenium\\chromeOptionsTest3',
+        # 'temp_dir': 'e:\\crawler_data\\tmp',
     }
 
 

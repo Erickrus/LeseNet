@@ -73,13 +73,17 @@ class ImageCrawler(object):
     def _init_selenium_browser(self):
 
         _options = webdriver.ChromeOptions()
-        _user_dir = conf.selenium['chrome_use_dir_path']
+        if not 'chrome_use_dir_path' in conf.selenium:
+            _user_dir = None
+            _driver_path = None
+        else:
+            _user_dir = conf.selenium['chrome_use_dir_path']
+            _driver_path =conf.selenium['chrome_driver_path']
         if(_user_dir is None or _user_dir==''):
             pass
         else:
             _options.add_argument('--user-data-dir=' + _user_dir)
 
-        _driver_path =conf.selenium['chrome_driver_path']
         if ( _driver_path is None or _driver_path=='' ):
             self._browser = webdriver.Chrome()
         else:
