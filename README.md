@@ -17,7 +17,7 @@ TODO:
 3. 自然语言分类及子类增强 Nlp classification and items enhancement 
  - synonyms
  - silblings
-4. 存储 百度网盘API - 完成 √
- - pan.baidu.com api [@kozartlvis](https://github.com/Kozartlvis)
+4. 存储 百度网盘API
+ - pan.baidu.com api [@kozartlvis](https://github.com/Kozartlvis) - 完成 √
 5. 创建微信小程序 Create Wechat app for collect more images
 
