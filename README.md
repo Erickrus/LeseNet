@@ -11,6 +11,7 @@ TODO:
  - bing
  - google [@ariso](https://github.com/arisosoftware)
  - baidu [@hdej43](https://github.com/hdej43)
+ - 爬取数据
 2. 基础层次关系构建 Classification hierarchy setup
  - base [@erickrus](https://github.com/erickrus)
 3. 自然语言分类及子类增强 Nlp classification and items enhancement 
