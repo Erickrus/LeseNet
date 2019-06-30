@@ -1,6 +1,7 @@
 import os
 import sys
 import hashlib
+import time
 
 from image_crawler import ImageCrawler
 from image_downloader import ImageDownloader
@@ -9,11 +10,6 @@ SEP = '-' * 70 + '\n'
 n_scroll = 2
 engine = 'baidu'
 
-if len(sys.argv)<2:
-    print("Usage: python3.x crawler.py keyword")
-    exit()
-
-keyword = sys.argv[1]
 
 def get_md5(text):
     m = hashlib.md5()
@@ -65,5 +61,23 @@ def crawl(keyword, n_scroll, engine='baidu'):
     print('Images are saved in: ' + image_save_dir + '\n')
 
 if __name__ == "__main__":
-    crawl(keyword, n_scroll, 'baidu')
+
+    if len(sys.argv)<3:
+        print("Usage: python3.x crawler.py startLine endLine")
+        exit()
+    startLine, endLine = int(sys.argv[1])-1, int(sys.argv[2])-1
+
+    hierachy = os.path.join('../hierarchy', 'hierarchy.yml')
+    f = open(hierachy, "r")
+    lines = f.read().split("\n")
+    f.close()
+    for i in range(len(lines)):
+        if startLine <= i and i<=endLine:
+            keyword = lines[i]
+            if len(keyword) > 6 and keyword[:6] == "   "*2 and not keyword.endswith("类"):
+                keyword = keyword.strip()
+                print("crawl: "+keyword)
+                crawl(keyword, n_scroll, 'baidu')
+                print("sleep: 10")
+                time.sleep(10)
 
