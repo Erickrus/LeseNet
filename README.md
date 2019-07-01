@@ -10,7 +10,7 @@ TODO:
 1. 图片搜索爬虫 Search engine crawler
  - bing - 完成 √
  - baidu [@hdej43](https://github.com/hdej43) - 完成 √
- - google [@ariso](https://github.com/arisosoftware)
+ - google [@ariso](https://github.com/arisosoftware) - 完成 √
  - 爬取数据 - 进行中 ...
 2. 基础层次关系构建 Classification hierarchy setup
  - base [@erickrus](https://github.com/erickrus) - 进行中 ...
