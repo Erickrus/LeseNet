@@ -75,8 +75,8 @@ def upload(keyword):
     bdy.mkdir("/data")
     bdy.mkdir("/data/images")
     bdy.mkdir("/data/links")
-    bdy.mkdir(os.path.join("/data/images", keywordHash))
-    bdy.mkdir(os.path.join("/data/links", keywordHash))
+    bdy.mkdir("/data/images/%s"% keywordHash)
+    bdy.mkdir("/data/links/%s"% keywordHash)
 
     for fileType in ["images", "links"]:
         print("uploading %s" % fileType)
@@ -86,7 +86,7 @@ def upload(keyword):
             filename = filenames[i]
             localFilename = os.path.abspath(filename)
 
-            remoteDir = os.path.join("/data/%s" % fileType, keywordHash)
+            remoteDir = "/data/%s/%s" % (fileType, keywordHash)
             bdy.upload(localFilename, remoteDir)
     print()
 
@@ -120,6 +120,7 @@ def main():
 
                 print("sleep: 10")
                 time.sleep(10)
+
 
 if __name__ == "__main__":
     check_parameter()
