@@ -104,7 +104,7 @@ def main():
 
     # loading hierachy
     hierachy = os.path.join('../hierarchy', 'hierarchy.yml')
-    f = open(hierachy, "r")
+    f = open(hierachy, "r" , encoding='utf-8')
     lines = f.read().split("\n")
     f.close()
 

@@ -63,7 +63,7 @@ class ImageCrawler(object):
         data = [[k, self.engine , self.keyword , time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()) ,x ] for k,x in enumerate(self.image_links.keys())]
         links_df = pd.DataFrame(data=data, columns=['num', 'engine' , 'keyword' , 'time' , 'links'])
 
-        links_df.to_csv(links_file, index=False)
+        links_df.to_csv(links_file, index=False , encoding='utf-8')
         return
 
     def _init_ssl(self):
