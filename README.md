@@ -21,3 +21,6 @@ TODO:
  - pan.baidu.com api [@kozartlvis](https://github.com/Kozartlvis) - 完成 √
 5. 创建微信小程序 Create Wechat app for collect more images
 
+
+欢迎加入微信群 参与讨论
+![](https://raw.githubusercontent.com/Erickrus/LeseNet/master/misc/img/3DB61583-D958-4AA3-9A25-CDEAA066B577.jpeg)
