@@ -6,6 +6,7 @@ from baidupcsapi import PCS
 
 class BaiduYun:
     def __init__(self):
+        print("BaiduYun")
         self.username = input("Username: ")
         print("initialize BaiduYun for %s " % self.username )
         print("you may need to recognize a photo and input the message code")
@@ -28,7 +29,7 @@ class BaiduYun:
         f = open(localFilename, 'rb')
         content = f.read()
         f.close()
-        ret = self.pcs.upload(remoteDir, content, localFilename)
+        ret = self.pcs.upload(remoteDir, content, os.path.basename(localFilename))
        
     def mkdir(self, remoteDir):
         try:
