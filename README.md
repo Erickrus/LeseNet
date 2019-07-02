@@ -24,4 +24,5 @@ TODO:
 
 
 欢迎加入微信群 参与讨论
-[群二维码](https://raw.githubusercontent.com/Erickrus/LeseNet/master/misc/img/3DB61583-D958-4AA3-9A25-CDEAA066B577.jpeg )
+
+![](misc/img/wx_group.jpg?raw=true)
