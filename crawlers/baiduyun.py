@@ -24,12 +24,16 @@ class BaiduYun:
                 remoteDir,
                 os.path.basename(localFilename) 
             )):
-            print("file exists")
+            # print("file exists")
             return
         f = open(localFilename, 'rb')
         content = f.read()
         f.close()
-        ret = self.pcs.upload(remoteDir, content, os.path.basename(localFilename))
+        try:
+            ret = self.pcs.upload(remoteDir, content, os.path.basename(localFilename))
+        except:
+            print("\nfailed to upload %s" % localFilename )
+            pass
        
     def mkdir(self, remoteDir):
         try:
@@ -50,4 +54,5 @@ class BaiduYun:
         except:
             pass
         return res
+
 
