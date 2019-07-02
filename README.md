@@ -8,17 +8,18 @@ LeseNet是一个类似ImageNet的图像层次化分类数据集，项目通过�
 TODO:
 
 1. 图片搜索爬虫 Search engine crawler
- - bing - 完成 √
- - baidu [@hdej43](https://github.com/hdej43) - 完成 √
- - google [@ariso](https://github.com/arisosoftware) - 完成 √
- - 爬取数据 - 进行中 ...
+ - [x] bing
+ - [x] baidu [@hdej43](https://github.com/hdej43)
+ - [x] google [@ariso](https://github.com/arisosoftware)
+ - [x] 爬取数据 - 进行中 ...
 2. 基础层次关系构建 Classification hierarchy setup
- - base [@erickrus](https://github.com/erickrus) - 进行中 ...
+ - [ ] base [@erickrus](https://github.com/erickrus) - 进行中 ...
 3. 自然语言分类及子类增强 Nlp classification and items enhancement 
- - synonyms
- - silblings
+ - [ ] synonyms 同义词
+ - [ ] silblings 相邻词
+ - [ ] knowledge graph 知识图谱
 4. 存储 百度网盘API
- - pan.baidu.com api [@kozartlvis](https://github.com/Kozartlvis) - 完成 √
+ - [x] pan.baidu.com api [@kozartlvis](https://github.com/Kozartlvis)
 5. 创建微信小程序 Create Wechat app for collect more images
 
 
