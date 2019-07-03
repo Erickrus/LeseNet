@@ -15,12 +15,13 @@ TODO:
 2. 基础层次关系构建 Classification hierarchy setup
  - [ ] base [@erickrus](https://github.com/erickrus) - 进行中 ...
 3. 自然语言分类及子类增强 Nlp classification and items enhancement 
- - [ ] synonyms 同义词
- - [ ] silblings 相邻词
- - [ ] knowledge graph 知识图谱
+ - [ ] 同义词 synonyms 
+ - [ ] 相邻词 silblings 
+ - [ ] 知识图谱 knowledge graph 
 4. 存储 百度网盘API
  - [x] pan.baidu.com api [@kozartlvis](https://github.com/Kozartlvis)
 5. 创建微信小程序 Create Wechat app for collect more images
+ - [ ] 微信小程序设计 [@erickrus](https://github.com/erickrus) - 进行中 ...
 
 
 欢迎加入微信群 参与讨论
