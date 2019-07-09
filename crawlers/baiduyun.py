@@ -55,4 +55,19 @@ class BaiduYun:
             pass
         return res
 
+    # 递归目录查询
+    def list(self, remoteFilename, recursive=False):
+        res = []
+        remoteDir = os.path.dirname(remoteFilename)
+        filelist = self.byte2json(self.pcs.list_files(remoteDir).content)
+        for item in filelist["list"]:
+            # print(item["path"])
+            if item["isdir"] == 1:
+                res.append(item["path"]+"/")
+                if recursive:
+                    res.extend(self.list(item["path"]+"/", recursive))
+            else:
+                res.append(item["path"])
+
+        return res
 
