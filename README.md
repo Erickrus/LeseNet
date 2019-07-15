@@ -13,7 +13,7 @@ TODO:
  - [x] google [@ariso](https://github.com/arisosoftware)
  - [ ] 爬取数据 - 进行中 ...
 2. 基础层次关系构建 Classification hierarchy setup
- - [ ] base [@erickrus](https://github.com/erickrus) - 进行中 ...
+ - [x] base [@erickrus](https://github.com/erickrus)
 3. 自然语言分类及子类增强 Nlp classification and items enhancement 
  - [ ] 同义词 synonyms 
  - [ ] 相邻词 silblings 
